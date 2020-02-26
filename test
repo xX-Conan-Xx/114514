@@ -1,0 +1,43 @@
+from date_time_func import get_current_date_time
+from date_time_func import choose_date_time
+
+def get_menu():
+    if x[0:3] == "Mon" or x[0:3] == "Wed" or x[0:3] == "Fri" or x[0:3] == "Sun":
+        if 7 <= int(x[15:17]) < 11:
+            return("McDonalds:", McDonalds_data['breakfast_menu'],\
+                  "KFC:", KFC_data['breakfast_menu'])
+        elif 11 <= int(x[15:17]) <= 21:
+            return("Mcdonalds:", McDonalds_data['odd_menu'],\
+                  "KFC:", KFC_data['odd_menu'],\
+                  "Chicken Rice Stall:", Chicken_Rice_data['odd_menu'],\
+                  "Western Stall:", Western_data['odd_menu'],\
+                  "Starbucks:", Starbucks_data['odd_menu'])
+    else:
+        if 7 <= int(x[15:17]) < 11:
+            return("McDonalds:", McDonalds_data['breakfast_menu'],\
+                  "KFC:", KFC_data['breakfast_menu'])
+        elif 11 <= int(x[15:17]) <= 21:
+            return("Mcdonalds:", McDonalds_data['even_menu'],\
+                  "KFC:", KFC_data['even_menu'],\
+                  "Chicken Rice Stall:", Chicken_Rice_data['even_menu'],\
+                  "Western Stall:", Western_data['even_menu'],\
+                  "Starbucks:", Starbucks_data['even_menu'])
+
+
+while True:
+    date_time_type = input("See menu for current date & time? (Y/N): ")
+    if date_time_type == 'Y':
+        x = get_current_date_time()
+        break
+    elif date_time_type == 'N':
+        x = choose_date_time()
+        break
+    else:
+        print("Please enter Y/N")
+        continue
+
+print(x)
+
+display_menu = get_menu()
+print(display_menu)
+
